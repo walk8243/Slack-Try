@@ -4,6 +4,7 @@
   "description": "超簡単なExpressのNode.jsサーバー",
   "main": "app.js",
   "dependencies": {
+    "config": "^3.1.0",
     "cookie-parser": "~1.4.3",
     "express": "~4.16.0",
     "request": "^2.88.0"

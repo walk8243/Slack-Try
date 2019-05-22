@@ -1,11 +1,9 @@
 const express = require('express');
+const config = require('config');
 const router = express.Router();
 const Request = require('../models/Request');
 
-const slackInfo = {
-  token: 'xxxx',
-  channel: 'xxxx',
-};
+const slackInfo = config.get('slack');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
