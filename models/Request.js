@@ -1,6 +1,8 @@
 const request = require('request');
 
 class Request {
+  constructor() {}
+
   get(url, data) {
     return new Promise((resolve, reject) => {
       request.get({
