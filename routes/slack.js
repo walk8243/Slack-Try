@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.send('slack');
 });
 router.post('/', (req, res, next) => {
-  res.send(req.params['challenge']);
+  res.send(req.body['challenge']);
 });
 
 module.exports = router;
