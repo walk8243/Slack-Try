@@ -11,10 +11,11 @@ router.get('/', function(req, res, next) {
 });
 router.post('/', async (req, res, next) => {
   const slackEvent = req.body['event'];
-  if(!Object.hasOwnProperty(slackEvent, 'subtype') || slackEvent['subtype'] !== 'bot_message') {
+  console.log(slackEvent.hasOwnProperty('subtype'), slackEvent['subtype'] != 'bot_message', slackEvent['subtype']);
+  if(!slackEvent.hasOwnProperty('subtype') || slackEvent['subtype'] != 'bot_message') {
     const slackData = { channel: slackInfo['channel'], text: slackEvent['text'] };
     const request = new Request();
-    const result = await request.post('https://slack.com/api/chat.postMessage', slackData, { 'Content-Type': 'application/json', Authorization: 'Bearer '+slackInfo['token'] });
+    await request.post('https://slack.com/api/chat.postMessage', slackData, { 'Content-Type': 'application/json', Authorization: 'Bearer '+slackInfo['token'] });
   }
   res.send(req.body['challenge']);
 });
