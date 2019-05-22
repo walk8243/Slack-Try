@@ -1,0 +1,27 @@
+{
+  "name": "express-simple",
+  "version": "1.0.0",
+  "description": "超簡単なExpressのNode.jsサーバー",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "express": "~4.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walk8243/Express-Simple.git"
+  },
+  "keywords": [],
+  "author": "walk8243 (https://qiita.com/walk8243)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walk8243/Express-Simple/issues"
+  },
+  "homepage": "https://github.com/walk8243/Express-Simple#readme",
+  "private": true
+}
