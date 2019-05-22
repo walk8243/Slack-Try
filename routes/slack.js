@@ -15,8 +15,11 @@ router.post('/', async (req, res, next) => {
   console.log(req.body);
   const slackEvent = req.body['event'];
   if(!Object.hasOwnProperty(slackEvent, 'subtype') || slackEvent['subtype'] == 'bot_message') {
+    const slackData = { token: slackInfo['token'], channel: slackInfo['channel'], text: slackEvent['text'] };
+    console.log(slackData);
     const request = new Request();
-    await request.get('https://slack.com/api/chat.postMessage', { token: slackInfo['token'], channel: slackInfo['channel'], text: slackEvent['text'] });
+    const result = await request.get('https://slack.com/api/chat.postMessage', slackData);
+    console.log(result);
   }
   res.send(req.body['challenge']);
 });
