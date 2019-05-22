@@ -1,7 +1,7 @@
 {
-  "name": "express-simple",
+  "name": "slack-try",
   "version": "1.0.0",
-  "description": "超簡単なExpressのNode.jsサーバー",
+  "description": "Slackからイベントを受け取り、メッセージをポストする。",
   "main": "app.js",
   "dependencies": {
     "config": "^3.1.0",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/walk8243/Express-Simple.git"
+    "url": "git+https://github.com/walk8243/Slack-Try.git"
   },
   "keywords": [],
   "author": "walk8243 (https://qiita.com/walk8243)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/walk8243/Express-Simple/issues"
+    "url": "https://github.com/walk8243/Slack-Try/issues"
   },
-  "homepage": "https://github.com/walk8243/Express-Simple#readme",
+  "homepage": "https://github.com/walk8243/Slack-Try#readme",
   "private": true
 }

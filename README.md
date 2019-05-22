@@ -1,2 +1,2 @@
-# Express-Simple
-超簡単なExpressのNode.jsサーバー
+# Slack-Try
+Slackからイベントを受け取り、メッセージをポストする。
