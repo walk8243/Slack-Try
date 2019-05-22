@@ -3,14 +3,12 @@ const request = require('request');
 class Request {
   constructor() {}
 
-  get(url, data) {
+  get(url, data, header) {
     return new Promise((resolve, reject) => {
       request.get({
         url: url,
         json: data,
-        headers: {
-          'Content-Type': 'application/json',
-        }
+        headers: header,
       }, (error, response, body) => {
         if(error) {
           return reject(error);
@@ -23,14 +21,12 @@ class Request {
     });
   }
 
-  post(url, data) {
+  post(url, data, header) {
     return new Promise((resolve, reject) => {
       request.post({
         url: url,
         json: data,
-        headers: {
-          'Content-Type': 'application/json',
-        }
+        headers: header,
       }, (error, response, body) => {
         if(error) {
           return reject(error);
