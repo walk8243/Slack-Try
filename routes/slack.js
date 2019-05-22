@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
     const slackData = { token: slackInfo['token'], channel: slackInfo['channel'], text: slackEvent['text'] };
     console.log(slackData);
     const request = new Request();
-    const result = await request.get('https://slack.com/api/chat.postMessage', slackData);
+    const result = await request.post('https://slack.com/api/chat.postMessage', slackData);
     console.log(result);
   }
   res.send(req.body['challenge']);
