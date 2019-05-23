@@ -4,18 +4,18 @@ const router = express.Router();
 const Request = require('../models/Request');
 
 const slackInfo = config.get('slack');
+const mentionRegExp = new RegExp('<@\\w+?> ');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('slack');
-});
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res) => {
   const slackEvent = req.body['event'];
-  console.log(slackEvent.hasOwnProperty('subtype'), slackEvent['subtype'] != 'bot_message', slackEvent['subtype']);
-  if(!slackEvent.hasOwnProperty('subtype') || slackEvent['subtype'] != 'bot_message') {
-    const slackData = { channel: slackInfo['channel'], text: slackEvent['text'] };
+  if(slackEvent) {
+    const slackData = { channel: slackInfo['channel'] };
+    const slackHeader = { 'Content-Type': 'application/json', Authorization: 'Bearer '+slackInfo['token'] };
+    if(slackEvent['type'] == 'app_mention') {
+      slackData['text'] = slackEvent['text'].replace(mentionRegExp, '');
+    }
     const request = new Request();
-    await request.post('https://slack.com/api/chat.postMessage', slackData, { 'Content-Type': 'application/json', Authorization: 'Bearer '+slackInfo['token'] });
+    await request.post('https://slack.com/api/chat.postMessage', slackData, slackHeader);
   }
   res.send(req.body['challenge']);
 });
